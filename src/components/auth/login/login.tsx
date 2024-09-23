@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
 import { AuthScreen } from "../../../utils/enums/auth.enum";
 import { ILoginFormInputs } from "@/utils/interfaces/auth.interface";
+import { useLogin } from "@/react-query/hooks";
+import { Button } from "@/components/ui/button";
 
 interface IProps {
   setAuthScreen: (value: AuthScreen) => void;
 }
 
 const Login = ({ setAuthScreen }: IProps) => {
+  const { mutate, isPending, isError } = useLogin();
   const {
     register,
     handleSubmit,
@@ -14,8 +17,7 @@ const Login = ({ setAuthScreen }: IProps) => {
   } = useForm<ILoginFormInputs>();
 
   const onSubmit = (data: ILoginFormInputs) => {
-    console.log(data);
-    // Handle form submission logic (e.g., API call)
+    mutate(data);
   };
 
   return (
@@ -23,7 +25,10 @@ const Login = ({ setAuthScreen }: IProps) => {
       <div className="bg-white  rounded-lg  max-w-md w-full">
         <h2 className="text-2xl font-bold text-center ">Login</h2>
         <p className="text-center text-gray-600 mb-6">
-          Enter your credentials to access your account
+          Enter your credentials to access your account <br />
+          <span className="text-red-500">
+            {isError && "User not found with this credentials"}
+          </span>
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,12 +64,13 @@ const Login = ({ setAuthScreen }: IProps) => {
             )}
           </div>
 
-          <button
+          <Button
             type="submit"
-            className="w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition"
+            disabled={isPending}
+            className="w-full h-12 text-md"
           >
             Login
-          </button>
+          </Button>
         </form>
 
         <p className="text-center text-gray-500 mt-4">
