@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { useRegister } from "@/react-query/hooks";
 import { AuthScreen } from "@/utils/enums/auth.enum";
 import { IRegisterFormInputs } from "@/utils/interfaces/auth.interface";
 import { useForm } from "react-hook-form";
@@ -12,18 +14,20 @@ const Register = ({ setAuthScreen }: IProps) => {
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterFormInputs>();
+  const { mutate, isPending, error } = useRegister();
 
   const onSubmit = (data: IRegisterFormInputs) => {
-    console.log(data);
-    // Handle form submission logic (e.g., API call)
+    mutate(data);
   };
 
   return (
     <div className="flex items-center justify-center">
       <div className="bg-white  rounded-lg  max-w-md w-full">
         <h2 className="text-2xl font-bold text-center ">Register</h2>
-        <p className="text-center text-gray-600 mb-6">Create a new account</p>
-
+        <p className="text-center text-gray-600 ">Create a new account</p>
+        {error && (
+          <p className="text-center text-red-600 mb-6">{error.message}</p>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Username */}
           <div className="mb-4">
@@ -122,12 +126,13 @@ const Register = ({ setAuthScreen }: IProps) => {
             )}
           </div>
 
-          <button
+          <Button
             type="submit"
-            className="w-full bg-black text-white font-semibold py-2 rounded-md hover:bg-gray-800 transition"
+            disabled={isPending}
+            className="h-12 w-full text-md"
           >
-            Register
-          </button>
+            {isPending ? "Submitting..." : "Register"}
+          </Button>
         </form>
 
         <p className="text-center text-gray-500 mt-4">

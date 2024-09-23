@@ -1,8 +1,10 @@
 import "./App.css";
+import { useAuth } from "./auth/useAuth";
 import Home from "./pages/home/home";
 
 function App() {
-  return <Home />;
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <p>Articles</p> : <Home />;
 }
 
 export default App;
