@@ -1,6 +1,9 @@
 import logo from "../../assets/logo.svg";
 import heroImage from "../../assets/home_hero.png";
 import { Button } from "@/components/ui/button";
+import AuthModal from "@/components/auth/auth-modal/auth-modal";
+import { AuthScreen } from "@/utils/enums/auth.enum";
+import { useState } from "react";
 
 interface FooterLink {
   href: string;
@@ -20,6 +23,16 @@ const footerLinks: FooterLink[] = [
 ];
 
 const Home = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authScreen, setAuthScreen] = useState<AuthScreen>(AuthScreen.REGISTER);
+
+  const onAuthModalOpen = (screen: AuthScreen) => {
+    setAuthScreen(screen);
+    setIsAuthModalOpen(true);
+  };
+
+  const onAuthModalClose = () => setIsAuthModalOpen(false);
+
   return (
     <div className="bg-[#f7f4ed] h-screen overflow-hidden">
       <div className="max-w-screen-2xl mx-auto h-full">
@@ -27,9 +40,22 @@ const Home = () => {
         <div className="navbar h-[75px] px-2 md:px-36 py-6 border-b border-black flex justify-between items-center">
           <img width={112} height={25} src={logo} alt="Logo" />
           <ul className="flex gap-6 text-sm font-medium items-center">
-            <li className="hidden md:block cursor-pointer">Write</li>
-            <li className="hidden md:block cursor-pointer">Sign in</li>
-            <li className="bg-black text-white rounded-full px-3 py-2 cursor-pointer">
+            <li
+              className="hidden md:block cursor-pointer"
+              onClick={() => onAuthModalOpen(AuthScreen.LOGIN)}
+            >
+              Write
+            </li>
+            <li
+              className="hidden md:block cursor-pointer"
+              onClick={() => onAuthModalOpen(AuthScreen.LOGIN)}
+            >
+              Sign in
+            </li>
+            <li
+              className="bg-black text-white rounded-full px-3 py-2 cursor-pointer"
+              onClick={() => onAuthModalOpen(AuthScreen.REGISTER)}
+            >
               Get Started
             </li>
           </ul>
@@ -45,7 +71,10 @@ const Home = () => {
               A place to read, write, and deepen your understanding
             </p>
 
-            <Button className="mt-8 h-12 rounded-full text-lg px-12 ">
+            <Button
+              onClick={() => onAuthModalOpen(AuthScreen.REGISTER)}
+              className="mt-8 h-12 rounded-full text-lg px-12 "
+            >
               Start Reading
             </Button>
           </div>
@@ -55,7 +84,6 @@ const Home = () => {
             className="max-w-md -mb-12 hidden md:block"
           />
         </div>
-
         {/* Footer */}
         <div className="footer bg-black md:bg-transparent w-full py-7 flex justify-center">
           <ul className="flex gap-4 text-xs text-white md:text-gray-500">
@@ -72,6 +100,12 @@ const Home = () => {
           </ul>
         </div>
       </div>
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={onAuthModalClose}
+        screen={authScreen}
+        setAuthScreen={setAuthScreen}
+      />
     </div>
   );
 };
