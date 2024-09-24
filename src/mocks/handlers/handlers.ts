@@ -1,4 +1,4 @@
-import { delay, http, HttpResponse } from "msw";
+import { http, HttpResponse } from "msw";
 import recommendedTopics from "../data/recomended.json";
 
 interface IUser {
@@ -46,8 +46,6 @@ export const handlers = [
   http.post(`${BASE_URL}/users/login`, async ({ request }) => {
     const requestBody = await request.json();
 
-    await delay();
-
     const { username, password } = requestBody as IUser;
 
     // Find the user by username
@@ -83,8 +81,6 @@ export const handlers = [
   // REGISTER
   http.post(`${BASE_URL}/users/register`, async ({ request }) => {
     const requestBody = await request.json();
-
-    await delay();
 
     const { username, password, firstName, lastName, email } =
       requestBody as IUser;
@@ -142,7 +138,6 @@ export const handlers = [
     }
 
     const token = authHeader.split(" ")[1]; // Extract the token from the header
-    await delay();
 
     // Find the user associated with the token
     const user = registeredUsers.find((user) => user.token === token);
@@ -165,9 +160,6 @@ export const handlers = [
 
   //RECOMMENDED TOPICS
   http.get(`${BASE_URL}/topics/recommended`, async () => {
-    // Simulate delay
-    await delay();
-
     // Return the list of recommended topics
     return HttpResponse.json(topics, { status: 200 });
   }),
@@ -177,9 +169,6 @@ export const handlers = [
     const topicData = await request.json();
 
     const { topicId } = topicData as { topicId: number };
-
-    // Simulate delay
-    await delay();
 
     // Find the topic by id
     const topic = topics.find((t) => t.id === topicId);

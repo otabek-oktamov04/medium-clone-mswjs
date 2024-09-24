@@ -1,3 +1,5 @@
+import FollowedArticles from "@/components/articles/followed-articles/followed-articles";
+import RecommendedArticles from "@/components/articles/recommended-articles/recommended-articles";
 import React, { useState } from "react";
 
 enum Tab {
@@ -16,19 +18,9 @@ const Articles: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case Tab.RECOMMENDED:
-        return (
-          <div>
-            <h2 className="text-xl font-bold">For You Content</h2>
-            <p>This is the content for the "For You" tab.</p>
-          </div>
-        );
+        return <FollowedArticles />;
       case Tab.FOLLOWED:
-        return (
-          <div>
-            <h2 className="text-xl font-bold">Following Content</h2>
-            <p>This is the content for the "Following" tab.</p>
-          </div>
-        );
+        return <RecommendedArticles />;
       default:
         return null;
     }
@@ -54,7 +46,7 @@ const Articles: React.FC = () => {
       </div>
 
       {/* Content below the tabs */}
-      <div className="p-4">{renderContent()}</div>
+      <div className="mt-6">{renderContent()}</div>
     </div>
   );
 };

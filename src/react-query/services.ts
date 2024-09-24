@@ -24,6 +24,17 @@ class APIServices {
     const res = await axiosInstance.get("/topics/recommended");
     return res.data;
   }
+
+  async getArticles(
+    isRecommended: boolean,
+    isFollowed: boolean,
+    search: string
+  ) {
+    const res = await axiosInstance.get(
+      `articles/?recommended=${isRecommended}&followed=${isFollowed}&search=${search}`
+    );
+    return res.data;
+  }
 }
 
 const ServiceInstance = new APIServices();

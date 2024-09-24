@@ -1,0 +1,136 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "The Rise of JavaScript Frameworks",
+      "content": "JavaScript frameworks have become increasingly popular in modern web development, offering powerful tools for building dynamic applications...",
+      "summary": "An overview of the growing popularity and benefits of JavaScript frameworks in web development.",
+      "author": {
+        "firstName": "John Doe",
+        "image": "https://picsum.photos/100/100?random=1",
+        "bio": "Senior Frontend Developer with 10+ years of experience in web technologies. Passionate about JavaScript and React.",
+        "info": "JavaScript Enthusiast, Open-source Contributor"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=1",
+      "claps": 120,
+      "comments": 45,
+      "readingCount": 3000,
+      "isSaved": true,
+      "followed": false,
+      "recommended": true,
+      "tags": ["JavaScript", "Web Development", "Frameworks"],
+      "createdAt": "2024-08-24T10:00:00Z",
+      "updatedAt": "2024-08-24T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Understanding AI and Its Future",
+      "content": "Artificial Intelligence (AI) is shaping the future of technology. From healthcare to finance, AI is being integrated into various industries...",
+      "summary": "A discussion on how AI is transforming various industries and its potential impact on the future.",
+      "author": {
+        "firstName": "Jane Smith",
+        "image": "https://picsum.photos/100/100?random=2",
+        "bio": "AI Researcher and Data Scientist with a focus on ethical AI and machine learning.",
+        "info": "Tech Visionary, AI Advocate"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=2",
+      "claps": 350,
+      "comments": 60,
+      "readingCount": 5500,
+      "isSaved": false,
+      "followed": true,
+      "recommended": false,
+      "tags": ["AI", "Technology", "Future"],
+      "createdAt": "2024-08-22T14:30:00Z",
+      "updatedAt": "2024-08-23T08:15:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Healthy Lifestyle: A Balanced Approach",
+      "content": "Maintaining a healthy lifestyle involves a balance of physical activity, nutritious food, and mental wellness. Explore how small changes can lead to big improvements...",
+      "summary": "Insights on achieving a healthy lifestyle through balanced nutrition, exercise, and mental well-being.",
+      "author": {
+        "firstName": "Sarah Lee",
+        "image": "https://picsum.photos/100/100?random=3",
+        "bio": "Certified Nutritionist and Wellness Coach helping people achieve sustainable health through balanced living.",
+        "info": "Health Advocate, Mindfulness Practitioner"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=3",
+      "claps": 180,
+      "comments": 20,
+      "readingCount": 4000,
+      "isSaved": true,
+      "followed": false,
+      "recommended": true,
+      "tags": ["Health", "Lifestyle", "Wellness"],
+      "createdAt": "2024-08-20T08:45:00Z",
+      "updatedAt": "2024-08-21T11:05:00Z"
+    },
+    {
+      "id": "4",
+      "title": "Blockchain and Cryptocurrency: What You Need to Know",
+      "content": "Blockchain technology has revolutionized the digital economy. From Bitcoin to Ethereum, cryptocurrencies are gaining traction as alternative financial systems...",
+      "summary": "An overview of blockchain technology and its implications for the future of finance and cryptocurrency.",
+      "author": {
+        "firstName": "Mark Johnson",
+        "image": "https://picsum.photos/100/100?random=4",
+        "bio": "Blockchain Enthusiast and Cryptocurrency Trader with a deep understanding of decentralized finance.",
+        "info": "Crypto Analyst, Blockchain Developer"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=4",
+      "claps": 500,
+      "comments": 80,
+      "readingCount": 6700,
+      "isSaved": false,
+      "followed": true,
+      "recommended": false,
+      "tags": ["Blockchain", "Cryptocurrency", "Finance"],
+      "createdAt": "2024-08-18T12:20:00Z",
+      "updatedAt": "2024-08-18T15:30:00Z"
+    },
+    {
+      "id": "5",
+      "title": "Exploring the World of Data Science",
+      "content": "Data Science is the key to unlocking hidden insights from large datasets. This article explores the tools and techniques used by data scientists to make data-driven decisions...",
+      "summary": "An exploration of data science methodologies and their role in extracting insights from data.",
+      "author": {
+        "firstName": "Emily Davis",
+        "image": "https://picsum.photos/100/100?random=5",
+        "bio": "Data Scientist at a leading tech company, passionate about analytics and machine learning.",
+        "info": "Data Enthusiast, Machine Learning Expert"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=5",
+      "claps": 230,
+      "comments": 35,
+      "readingCount": 4500,
+      "isSaved": true,
+      "followed": false,
+      "recommended": true,
+      "tags": ["Data Science", "Analytics", "Machine Learning"],
+      "createdAt": "2024-08-17T17:10:00Z",
+      "updatedAt": "2024-08-18T08:40:00Z"
+    },
+    {
+      "id": "6",
+      "title": "Writing for Impact: How to Craft Powerful Narratives",
+      "content": "Effective writing can change minds and inspire action. Learn how to structure your writing for maximum impact, whether it's for blog posts, books, or marketing materials...",
+      "summary": "Guidance on creating impactful narratives through effective writing techniques.",
+      "author": {
+        "firstName": "David Brown",
+        "image": "https://picsum.photos/100/100?random=6",
+        "bio": "Freelance Writer and Storyteller with 15+ years of experience in content creation.",
+        "info": "Content Strategist, Writing Coach"
+      },
+      "thumbnail": "https://picsum.photos/500/300?random=6",
+      "claps": 310,
+      "comments": 50,
+      "readingCount": 5800,
+      "isSaved": false,
+      "followed": true,
+      "recommended": false,
+      "tags": ["Writing", "Storytelling", "Content Creation"],
+      "createdAt": "2024-08-15T07:55:00Z",
+      "updatedAt": "2024-08-16T12:25:00Z"
+    }
+  ]
+}
