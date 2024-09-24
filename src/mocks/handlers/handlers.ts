@@ -142,7 +142,6 @@ export const handlers = [
     }
 
     const token = authHeader.split(" ")[1]; // Extract the token from the header
-    console.log(token, registeredUsers);
     await delay();
 
     // Find the user associated with the token
