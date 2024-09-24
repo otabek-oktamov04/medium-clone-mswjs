@@ -8,10 +8,12 @@ interface IProps {
 
 const ArticlesLayout = ({ children }: IProps) => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen w-full overflow-hidden">
       <ArticlesHeader />
-      <div className="flex w-full">
-        <div className="w-3/4">{children}</div>
+      <div className="flex w-full h-screen">
+        <div className="w-3/4 overflow-y-scroll no-scrollbar pb-24">
+          {children}
+        </div>
         <ArticlesSidebar />
       </div>
     </div>

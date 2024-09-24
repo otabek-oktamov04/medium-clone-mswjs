@@ -44,4 +44,15 @@ const useGetTopics = () => {
   });
 };
 
-export { useLogin, useRegister, useGetMe, useGetTopics };
+const useGetArticles = (
+  isRecommended: boolean,
+  isFollowed: boolean,
+  search: string
+) => {
+  return useQuery({
+    queryKey: [`articles${isRecommended}${isFollowed}${search}`],
+    queryFn: () => APIServices.getArticles(isRecommended, isFollowed, search),
+  });
+};
+
+export { useLogin, useRegister, useGetMe, useGetTopics, useGetArticles };
