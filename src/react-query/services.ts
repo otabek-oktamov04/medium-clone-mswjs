@@ -14,6 +14,16 @@ class APIServices {
     const res = await axiosInstance.post("/users/register/", registerValue);
     return res.data;
   }
+
+  async getMe() {
+    const res = await axiosInstance.get("/users/me/");
+    return res.data;
+  }
+
+  async getTopics() {
+    const res = await axiosInstance.get("/topics/recommended");
+    return res.data;
+  }
 }
 
 const ServiceInstance = new APIServices();

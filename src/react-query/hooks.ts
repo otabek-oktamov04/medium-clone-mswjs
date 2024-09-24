@@ -3,7 +3,7 @@ import {
   ILoginFormInputs,
   IRegisterFormInputs,
 } from "@/utils/interfaces/auth.interface";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import APIServices from "./services";
 
 const useLogin = () => {
@@ -29,4 +29,19 @@ const useRegister = () => {
   });
 };
 
-export { useLogin, useRegister };
+const useGetMe = () => {
+  return useQuery({
+    queryKey: ["userInfo"],
+    queryFn: () => APIServices.getMe(),
+    retryOnMount: false,
+  });
+};
+
+const useGetTopics = () => {
+  return useQuery({
+    queryKey: ["topics"],
+    queryFn: () => APIServices.getTopics(),
+  });
+};
+
+export { useLogin, useRegister, useGetMe, useGetTopics };
