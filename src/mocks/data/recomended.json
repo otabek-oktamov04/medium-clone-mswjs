@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Programming",
+    "followers": 500000,
+    "stories": 12000,
+    "followed": false
+  },
+  {
+    "id": 2,
+    "name": "Self Improvement",
+    "followers": 3000000,
+    "stories": 235000,
+    "followed": true
+  },
+  {
+    "id": 3,
+    "name": "Data Science",
+    "followers": 1200000,
+    "stories": 98000,
+    "followed": false
+  },
+  {
+    "id": 4,
+    "name": "Writing",
+    "followers": 850000,
+    "stories": 54000,
+    "followed": true
+  },
+  {
+    "id": 5,
+    "name": "Technology",
+    "followers": 2000000,
+    "stories": 156000,
+    "followed": false
+  },
+  {
+    "id": 6,
+    "name": "Relationships",
+    "followers": 250000,
+    "stories": 12000,
+    "followed": false
+  },
+  {
+    "id": 7,
+    "name": "Politics",
+    "followers": 600000,
+    "stories": 43000,
+    "followed": true
+  },
+  {
+    "id": 8,
+    "name": "Lifestyle",
+    "followers": 3000000,
+    "stories": 235000,
+    "followed": false
+  },
+  {
+    "id": 9,
+    "name": "Health",
+    "followers": 1500000,
+    "stories": 67000,
+    "followed": false
+  },
+  {
+    "id": 10,
+    "name": "Food",
+    "followers": 900000,
+    "stories": 45000,
+    "followed": false
+  }
+]
