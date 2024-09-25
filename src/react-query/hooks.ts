@@ -5,6 +5,7 @@ import {
 } from "@/utils/interfaces/auth.interface";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import APIServices from "./services";
+import { IArticle } from "@/utils/interfaces/article.interface";
 
 const useLogin = () => {
   const { login } = useAuth();
@@ -55,4 +56,32 @@ const useGetArticles = (
   });
 };
 
-export { useLogin, useRegister, useGetMe, useGetTopics, useGetArticles };
+const useGetArticleById = (id: string) => {
+  return useQuery({
+    queryKey: [`article${id}`],
+    queryFn: () => APIServices.getArticleById(id),
+  });
+};
+
+const useSaveArticle = () => {
+  return useMutation({
+    mutationFn: (value: IArticle) => APIServices.saveArticle(value),
+  });
+};
+
+const useUnSaveArticle = () => {
+  return useMutation({
+    mutationFn: (value: IArticle) => APIServices.unSaveArticle(value),
+  });
+};
+
+export {
+  useLogin,
+  useRegister,
+  useGetMe,
+  useGetTopics,
+  useGetArticles,
+  useGetArticleById,
+  useSaveArticle,
+  useUnSaveArticle,
+};

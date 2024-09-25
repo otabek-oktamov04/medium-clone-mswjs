@@ -10,7 +10,10 @@ const ArticlesSidebar = () => {
       <h2 className="text-lg font-medium mb-4">Recommended topics</h2>
       <div className="flex flex-wrap gap-2">
         {topics?.slice(0, 5).map((item: ITopic) => (
-          <div className="bg-gray-100 px-4 py-2 cursor-pointer rounded-full text-sm font-medium">
+          <div
+            key={item.id}
+            className="bg-gray-100 px-4 py-2 cursor-pointer rounded-full text-sm font-medium"
+          >
             {item.name}
           </div>
         ))}

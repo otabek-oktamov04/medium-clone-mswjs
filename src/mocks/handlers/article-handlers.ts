@@ -96,4 +96,22 @@ export const articleHandlers = [
       { status: 200 }
     );
   }),
+
+  // ADD CLAPS
+  http.post(`${BASE_URL}/articles/:id/clap`, async ({ params }) => {
+    const article = articlesList.find((article) => article.id === params.id);
+
+    if (!article) {
+      return HttpResponse.json(
+        { message: "Article not found" },
+        { status: 404 }
+      );
+    }
+
+    article.claps += 1; // Increment claps
+    return HttpResponse.json(
+      { message: "Clap added successfully", claps: article.claps },
+      { status: 200 }
+    );
+  }),
 ];

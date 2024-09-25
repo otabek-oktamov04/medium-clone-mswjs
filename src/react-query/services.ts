@@ -1,4 +1,5 @@
 import axiosInstance from "@/services/axios-config";
+import { IArticle } from "@/utils/interfaces/article.interface";
 import {
   ILoginFormInputs,
   IRegisterFormInputs,
@@ -33,6 +34,21 @@ class APIServices {
     const res = await axiosInstance.get(
       `articles/?recommended=${isRecommended}&followed=${isFollowed}&search=${search}`
     );
+    return res.data;
+  }
+
+  async getArticleById(id: string) {
+    const res = await axiosInstance.get(`articles/${id}/`);
+    return res.data as IArticle;
+  }
+
+  async saveArticle(article: IArticle) {
+    const res = await axiosInstance.post(`articles/save/`, article);
+    return res.data;
+  }
+
+  async unSaveArticle(article: IArticle) {
+    const res = await axiosInstance.post("/articles/unsave", article);
     return res.data;
   }
 }
