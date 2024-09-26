@@ -1,5 +1,9 @@
 import axiosInstance from "@/services/axios-config";
 import {
+  IArticle,
+  ICommentFormFields,
+} from "@/utils/interfaces/article.interface";
+import {
   ILoginFormInputs,
   IRegisterFormInputs,
 } from "@/utils/interfaces/auth.interface";
@@ -32,6 +36,41 @@ class APIServices {
   ) {
     const res = await axiosInstance.get(
       `articles/?recommended=${isRecommended}&followed=${isFollowed}&search=${search}`
+    );
+    return res.data;
+  }
+
+  async getArticleById(id: string) {
+    const res = await axiosInstance.get(`articles/${id}/`);
+    return res.data as IArticle;
+  }
+
+  async saveArticle(article: IArticle) {
+    const res = await axiosInstance.post(`articles/save/`, article);
+    return res.data;
+  }
+
+  async unSaveArticle(article: IArticle) {
+    const res = await axiosInstance.post("/articles/unsave", article);
+    return res.data;
+  }
+
+  async createComment(articleId: string, value: ICommentFormFields) {
+    const res = await axiosInstance.post(
+      `/articles/${articleId}/comments`,
+      value
+    );
+    return res.data;
+  }
+
+  async createSubComment(
+    articleId: string,
+    commentId: string,
+    value: ICommentFormFields
+  ) {
+    const res = await axiosInstance.post(
+      `/articles/${articleId}/comments/${commentId}/replies`,
+      value
     );
     return res.data;
   }

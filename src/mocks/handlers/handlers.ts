@@ -19,7 +19,7 @@ const registeredUsers: Array<IUser> = [
     firstName: "Abdullaev",
     email: "nodir@gmail.com",
     password: "1221",
-    token: "77b996b271d3a200faf8db96ae1140e6057f9365941385461c18bc665111ee8d",
+    token: "3b45a104ca9daca326f45d98be7818d0eab54e9fa01c6128795a5106e4aac91c",
   },
 ];
 

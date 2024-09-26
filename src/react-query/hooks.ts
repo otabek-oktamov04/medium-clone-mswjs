@@ -5,6 +5,10 @@ import {
 } from "@/utils/interfaces/auth.interface";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import APIServices from "./services";
+import {
+  IArticle,
+  ICommentFormFields,
+} from "@/utils/interfaces/article.interface";
 
 const useLogin = () => {
   const { login } = useAuth();
@@ -55,4 +59,60 @@ const useGetArticles = (
   });
 };
 
-export { useLogin, useRegister, useGetMe, useGetTopics, useGetArticles };
+const useGetArticleById = (id: string) => {
+  return useQuery({
+    queryKey: [`article${id}`],
+    queryFn: () => APIServices.getArticleById(id),
+  });
+};
+
+const useSaveArticle = () => {
+  return useMutation({
+    mutationFn: (value: IArticle) => APIServices.saveArticle(value),
+  });
+};
+
+const useUnSaveArticle = () => {
+  return useMutation({
+    mutationFn: (value: IArticle) => APIServices.unSaveArticle(value),
+  });
+};
+
+const useComment = () => {
+  return useMutation({
+    mutationFn: ({
+      id,
+      comment,
+    }: {
+      id: string;
+      comment: ICommentFormFields;
+    }) => APIServices.createComment(id, comment),
+  });
+};
+
+const useCreateSubComment = () => {
+  return useMutation({
+    mutationFn: ({
+      articleId,
+      commentId,
+      comment,
+    }: {
+      articleId: string;
+      commentId: string;
+      comment: ICommentFormFields;
+    }) => APIServices.createSubComment(articleId, commentId, comment),
+  });
+};
+
+export {
+  useLogin,
+  useRegister,
+  useGetMe,
+  useGetTopics,
+  useGetArticles,
+  useGetArticleById,
+  useSaveArticle,
+  useUnSaveArticle,
+  useComment,
+  useCreateSubComment,
+};

@@ -8,6 +8,20 @@ export interface ITopic {
   followed: boolean;
 }
 
+export interface IComment {
+  id: string;
+  text: string;
+  author: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    avatarUrl: string;
+    info: string;
+  };
+  createdAt: Date;
+  replies?: IComment[];
+}
+
 export interface IArticle {
   id: string;
   title: string;
@@ -16,7 +30,7 @@ export interface IArticle {
   thumbnail: string;
   claps: number;
   summary: string;
-  comments: number;
+  comments: IComment[];
   readingCount: number;
   isSaved: boolean;
   isRecommended: boolean;
@@ -24,4 +38,9 @@ export interface IArticle {
   tags: string[];
   createdAt: string;
   updatedAt: string;
+}
+
+export interface ICommentFormFields {
+  text: string;
+  author: IUser;
 }
