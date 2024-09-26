@@ -1,4 +1,5 @@
 import ArticlesHeader from "@/components/articles/articles-header/articles-header";
+import Comments from "@/components/articles/comments/comments";
 import {
   useGetArticleById,
   useGetArticles,
@@ -34,6 +35,7 @@ const ArticleView = () => {
     ""
   );
   const { refetch: refetchFollowedArticles } = useGetArticles(false, true, "");
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
   const [isLiked, setIsLiked] = useState(false);
 
@@ -96,7 +98,11 @@ const ArticleView = () => {
               {isLiked ? article.claps + 1 : article.claps}
             </span>
             <span className="flex hover:text-black cursor-pointer items-center gap-2">
-              <MessageCircleIcon className="w-4" /> {article?.comments}
+              <MessageCircleIcon
+                onClick={() => setIsCommentsOpen(true)}
+                className="w-4"
+              />{" "}
+              {article?.comments.length}
             </span>
           </div>
 
@@ -140,6 +146,12 @@ const ArticleView = () => {
           ))}
         </div>
       </div>
+      <Comments
+        articleId={article.id}
+        isOpen={isCommentsOpen}
+        onClose={() => setIsCommentsOpen(false)}
+        comments={article.comments}
+      />
     </div>
   );
 };

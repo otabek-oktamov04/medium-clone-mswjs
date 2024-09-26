@@ -66,7 +66,8 @@ const ArticleCard = ({ article }: IProps) => {
                   <ThumbsUpIcon className="w-4" /> {article.claps}
                 </span>
                 <span className="flex items-center gap-1 cursor-pointer">
-                  <MessageCircleIcon className="w-4" /> {article.comments}
+                  <MessageCircleIcon className="w-4" />{" "}
+                  {article.comments.length}
                 </span>
               </div>
               <span>

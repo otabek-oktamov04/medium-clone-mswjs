@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import articles from "../data/articles.json";
+import { IComment } from "@/utils/interfaces/article.interface";
 
 const articlesList = articles.articles || [];
 
@@ -114,4 +115,85 @@ export const articleHandlers = [
       { status: 200 }
     );
   }),
+
+  // ADD COMMENT TO AN ARTICLE
+  http.post(
+    `${BASE_URL}/articles/:id/comments`,
+    async ({ params, request }) => {
+      const article = articlesList.find((article) => article.id === params.id);
+
+      if (!article) {
+        return HttpResponse.json(
+          { message: "Article not found" },
+          { status: 404 }
+        );
+      }
+
+      const commentData = await request.json();
+
+      const { text, author } = commentData as IComment;
+      const newComment = {
+        id: `${Date.now()}`, // simple ID generation based on timestamp
+        text: text,
+        author: author,
+        createdAt: new Date().toISOString(),
+        replies: [],
+      };
+
+      // Add the new comment to the article's comments array
+      article.comments = [...(article.comments || []), newComment];
+
+      return HttpResponse.json(
+        { message: "Comment added successfully", comment: newComment },
+        { status: 201 }
+      );
+    }
+  ),
+
+  // ADD REPLY TO A COMMENT
+  http.post(
+    `${BASE_URL}/articles/:id/comments/:commentId/replies`,
+    async ({ params, request }) => {
+      const article = articlesList.find((article) => article.id === params.id);
+
+      if (!article) {
+        return HttpResponse.json(
+          { message: "Article not found" },
+          { status: 404 }
+        );
+      }
+
+      const commentIndex = article.comments.findIndex(
+        (comment) => comment.id === params.commentId
+      );
+
+      if (commentIndex === -1) {
+        return HttpResponse.json(
+          { message: "Comment not found" },
+          { status: 404 }
+        );
+      }
+
+      const replyData = await request.json();
+
+      const { text, author } = replyData as IComment;
+      const newReply = {
+        id: `${Date.now()}-${Math.random().toString(36).substring(7)}`, // unique ID for reply
+        text: text,
+        author: author,
+        createdAt: new Date().toISOString(),
+      };
+
+      // Add the new reply to the specified comment's replies array
+      article.comments[commentIndex].replies = [
+        ...(article.comments[commentIndex].replies || []),
+        newReply,
+      ];
+
+      return HttpResponse.json(
+        { message: "Reply added successfully", reply: newReply },
+        { status: 201 }
+      );
+    }
+  ),
 ];

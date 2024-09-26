@@ -1,5 +1,8 @@
 import axiosInstance from "@/services/axios-config";
-import { IArticle } from "@/utils/interfaces/article.interface";
+import {
+  IArticle,
+  ICommentFormFields,
+} from "@/utils/interfaces/article.interface";
 import {
   ILoginFormInputs,
   IRegisterFormInputs,
@@ -49,6 +52,26 @@ class APIServices {
 
   async unSaveArticle(article: IArticle) {
     const res = await axiosInstance.post("/articles/unsave", article);
+    return res.data;
+  }
+
+  async createComment(articleId: string, value: ICommentFormFields) {
+    const res = await axiosInstance.post(
+      `/articles/${articleId}/comments`,
+      value
+    );
+    return res.data;
+  }
+
+  async createSubComment(
+    articleId: string,
+    commentId: string,
+    value: ICommentFormFields
+  ) {
+    const res = await axiosInstance.post(
+      `/articles/${articleId}/comments/${commentId}/replies`,
+      value
+    );
     return res.data;
   }
 }

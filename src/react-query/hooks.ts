@@ -5,7 +5,10 @@ import {
 } from "@/utils/interfaces/auth.interface";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import APIServices from "./services";
-import { IArticle } from "@/utils/interfaces/article.interface";
+import {
+  IArticle,
+  ICommentFormFields,
+} from "@/utils/interfaces/article.interface";
 
 const useLogin = () => {
   const { login } = useAuth();
@@ -75,6 +78,32 @@ const useUnSaveArticle = () => {
   });
 };
 
+const useComment = () => {
+  return useMutation({
+    mutationFn: ({
+      id,
+      comment,
+    }: {
+      id: string;
+      comment: ICommentFormFields;
+    }) => APIServices.createComment(id, comment),
+  });
+};
+
+const useCreateSubComment = () => {
+  return useMutation({
+    mutationFn: ({
+      articleId,
+      commentId,
+      comment,
+    }: {
+      articleId: string;
+      commentId: string;
+      comment: ICommentFormFields;
+    }) => APIServices.createSubComment(articleId, commentId, comment),
+  });
+};
+
 export {
   useLogin,
   useRegister,
@@ -84,4 +113,6 @@ export {
   useGetArticleById,
   useSaveArticle,
   useUnSaveArticle,
+  useComment,
+  useCreateSubComment,
 };

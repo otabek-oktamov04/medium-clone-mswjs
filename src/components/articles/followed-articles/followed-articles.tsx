@@ -8,7 +8,7 @@ const FollowedArticles = () => {
   return (
     <div>
       {articles?.map((item: IArticle) => (
-        <ArticleCard article={item} />
+        <ArticleCard key={item.id} article={item} />
       ))}
     </div>
   );
