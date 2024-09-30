@@ -7,6 +7,7 @@ import {
   ILoginFormInputs,
   IRegisterFormInputs,
 } from "@/utils/interfaces/auth.interface";
+import { IUser } from "@/utils/interfaces/user.interface";
 
 class APIServices {
   async login(loginValue: ILoginFormInputs) {
@@ -21,7 +22,7 @@ class APIServices {
 
   async getMe() {
     const res = await axiosInstance.get("/users/me/");
-    return res.data;
+    return res.data as IUser;
   }
 
   async getTopics() {
@@ -73,6 +74,21 @@ class APIServices {
       value
     );
     return res.data;
+  }
+
+  async updateUser(user: IUser) {
+    const res = await axiosInstance.patch("/users/update", user);
+    return res.data;
+  }
+
+  async getSavedArticles() {
+    const res = await axiosInstance.get("/articles/saved");
+    return res.data as IArticle[];
+  }
+
+  async getMyArticles() {
+    const res = await axiosInstance.get("articles/my");
+    return res.data as IArticle[];
   }
 }
 

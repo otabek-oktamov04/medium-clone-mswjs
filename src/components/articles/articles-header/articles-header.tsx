@@ -1,13 +1,20 @@
-import { BellIcon, PenSquare, SearchIcon } from "lucide-react";
+import { BellIcon, PenSquare, SearchIcon, UserIcon } from "lucide-react";
 import logo from "../../../assets/logo.svg";
 import { IUser } from "@/utils/interfaces/user.interface";
 import { useGetMe } from "@/react-query/hooks";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 const getUserAvatarOrInitials = (user: IUser) => {
-  if (user.avatar) {
+  if (user.image) {
     return (
       <img
-        src={user.avatar}
+        src={user.image}
         alt="User Avatar"
         className="w-full h-full object-cover rounded-full"
       />
@@ -48,9 +55,20 @@ const ArticlesHeader = () => {
           <BellIcon />
         </button>
         {user && (
-          <button className="w-9 h-9 flex items-center justify-center rounded-full bg-blue-700 text-white">
-            {getUserAvatarOrInitials(user)}
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <button className="w-9 h-9 flex items-center justify-center rounded-full bg-blue-700 text-white">
+                {getUserAvatarOrInitials(user)}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="min-w-60 font-medium text-gray-600 mr-4 p-3 shadow-md">
+              <Link to="/profile">
+                <DropdownMenuItem className="flex items-center gap-4 cursor-pointer p-2 ">
+                  <UserIcon /> Profile
+                </DropdownMenuItem>
+              </Link>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
       </div>
     </div>

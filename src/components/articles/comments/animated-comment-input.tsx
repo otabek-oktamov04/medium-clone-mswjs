@@ -27,6 +27,7 @@ export default function AnimatedCommentInput({ articleId }: IProps) {
   };
 
   const handleSubmit = async () => {
+    if (!user) return null;
     await createComment({
       id: articleId,
       comment: {
@@ -73,10 +74,10 @@ export default function AnimatedCommentInput({ articleId }: IProps) {
               >
                 <Avatar className="h-10 w-10 mr-2">
                   <AvatarImage src="/placeholder-avatar.jpg" alt="@username" />
-                  <AvatarFallback>{user.firstName[0]}</AvatarFallback>
+                  <AvatarFallback>{user?.firstName[0]}</AvatarFallback>
                 </Avatar>
                 <span className="font-semibold">
-                  {user.firstName} {user.lastName}
+                  {user?.firstName} {user?.lastName}
                 </span>
               </motion.div>
               <motion.div

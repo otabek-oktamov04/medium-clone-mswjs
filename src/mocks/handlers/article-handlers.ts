@@ -1,12 +1,47 @@
 import { http, HttpResponse } from "msw";
 import articles from "../data/articles.json";
 import { IComment } from "@/utils/interfaces/article.interface";
+import { registeredUsers } from "./handlers";
 
 const articlesList = articles.articles || [];
 
 const BASE_URL = "https://medium-api.com";
 
 export const articleHandlers = [
+  // GET ARTICLES
+  http.get(`${BASE_URL}/articles/saved`, async () => {
+    const savedArticles = articlesList.filter((article) => article.isSaved);
+    return HttpResponse.json(savedArticles, { status: 200 });
+  }),
+
+  http.get(`${BASE_URL}/articles/my`, async ({ request }) => {
+    const authHeader = request.headers.get("Authorization");
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return HttpResponse.json(
+        { message: "Authorization header missing or invalid" },
+        { status: 401 }
+      );
+    }
+
+    const token = authHeader.split(" ")[1]; // Extract the token from the header
+    const user = registeredUsers.find((user) => user.token === token);
+
+    if (!user) {
+      return HttpResponse.json(
+        { message: "Invalid token or user not found" },
+        { status: 401 }
+      );
+    }
+
+    // Assuming articles have an authorId property
+    const userArticles = articlesList.filter(
+      (article) => article.author.id === user.id
+    );
+
+    return HttpResponse.json(userArticles, { status: 200 });
+  }),
+
   // GET ARTICLES
   http.get(`${BASE_URL}/articles`, async ({ request }) => {
     const url = new URL(request.url);
