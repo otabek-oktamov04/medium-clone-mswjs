@@ -7,19 +7,23 @@ interface IUser {
   lastName: string;
   username: string;
   email: string;
+  info: string;
+  bio: string;
   password: string;
   token: string;
 }
 
-const registeredUsers: Array<IUser> = [
+export const registeredUsers: Array<IUser> = [
   {
     id: "12345678",
     username: "test",
     lastName: "Nodir",
     firstName: "Abdullaev",
+    info: "Front-end Software engineer",
     email: "nodir@gmail.com",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, soluta!",
     password: "1221",
-    token: "3b45a104ca9daca326f45d98be7818d0eab54e9fa01c6128795a5106e4aac91c",
+    token: "1571ec0d23ba291c3609883465575e4e672c04cdd6867f0dcf949c836cc0e8dc",
   },
 ];
 
@@ -82,7 +86,7 @@ export const handlers = [
   http.post(`${BASE_URL}/users/register`, async ({ request }) => {
     const requestBody = await request.json();
 
-    const { username, password, firstName, lastName, email } =
+    const { username, password, info, bio, firstName, lastName, email } =
       requestBody as IUser;
 
     // Check if the username already exists
@@ -103,6 +107,8 @@ export const handlers = [
       password, // Consider hashing the password for security
       firstName,
       lastName,
+      info,
+      bio,
       email,
       token: generateRandomToken(),
     };
@@ -150,10 +156,10 @@ export const handlers = [
     }
 
     // Return user details (omit the password and token)
-    const { id, firstName, lastName, email } = user;
+    const { id, firstName, lastName, email, info, bio } = user;
 
     return HttpResponse.json(
-      { id, firstName, lastName, email },
+      { id, firstName, lastName, email, info, bio },
       { status: 200 }
     );
   }),
@@ -182,6 +188,54 @@ export const handlers = [
 
     return HttpResponse.json(
       { message: topic.followed ? "Followed" : "Unfollowed", topic },
+      { status: 200 }
+    );
+  }),
+
+  // UPDATE USER INFO
+  http.patch(`${BASE_URL}/users/update`, async ({ request }) => {
+    const authHeader = request.headers.get("Authorization");
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return HttpResponse.json(
+        { message: "Authorization header missing or invalid" },
+        { status: 401 }
+      );
+    }
+
+    const token = authHeader.split(" ")[1]; // Extract the token from the header
+    const user = registeredUsers.find((user) => user.token === token);
+
+    if (!user) {
+      return HttpResponse.json(
+        { message: "Invalid token or user not found" },
+        { status: 401 }
+      );
+    }
+
+    const requestBody = await request.json();
+    const { info, bio, firstName, lastName, email } =
+      requestBody as Partial<IUser>;
+
+    // Update user's information
+    user.info = info ?? user.info; // Only update if provided
+    user.bio = bio ?? user.bio; // Only update if provided
+    user.firstName = firstName ?? user.firstName; // Only update if provided
+    user.lastName = lastName ?? user.lastName; // Only update if provided
+    user.email = email ?? user.email; // Only update if provided
+
+    return HttpResponse.json(
+      {
+        message: "User information updated successfully",
+        user: {
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          info: user.info,
+          bio: user.bio,
+        },
+      },
       { status: 200 }
     );
   }),

@@ -9,6 +9,7 @@ import {
   IArticle,
   ICommentFormFields,
 } from "@/utils/interfaces/article.interface";
+import { IUser } from "@/utils/interfaces/user.interface";
 
 const useLogin = () => {
   const { login } = useAuth();
@@ -104,6 +105,26 @@ const useCreateSubComment = () => {
   });
 };
 
+const useUpdateUser = () => {
+  return useMutation({
+    mutationFn: (user: IUser) => APIServices.updateUser(user),
+  });
+};
+
+const useGetSavedArticles = () => {
+  return useQuery({
+    queryKey: [`savedArticles`],
+    queryFn: () => APIServices.getSavedArticles(),
+  });
+};
+
+const useGetMyArticles = () => {
+  return useQuery({
+    queryKey: [`myarticles`],
+    queryFn: () => APIServices.getMyArticles(),
+  });
+};
+
 export {
   useLogin,
   useRegister,
@@ -115,4 +136,7 @@ export {
   useUnSaveArticle,
   useComment,
   useCreateSubComment,
+  useUpdateUser,
+  useGetSavedArticles,
+  useGetMyArticles,
 };

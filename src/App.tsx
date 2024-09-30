@@ -5,6 +5,7 @@ import ArticlesLayout from "./components/layouts/articles-layout/articles-layout
 import Articles from "./pages/articles/articles";
 import Home from "./pages/home/home";
 import ArticleView from "./pages/articles/article-view/article-view";
+import UserProfile from "./pages/user-profile/user-profile";
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -25,6 +26,7 @@ function App() {
           }
         />
         <Route path="article/:id/" element={<ArticleView />} />
+        <Route path="profile" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );
