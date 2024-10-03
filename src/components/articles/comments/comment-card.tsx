@@ -35,14 +35,15 @@ const CommentCard = ({ comment, articleId }: IProps) => {
   const likeCount = isLiked ? LIKES_COUNT + 1 : LIKES_COUNT;
 
   const handleReplySubmit = async () => {
-    await mutateAsync({
-      articleId,
-      commentId: comment.id,
-      comment: {
-        text: commentText,
-        author: user,
-      },
-    });
+    if (user)
+      await mutateAsync({
+        articleId,
+        commentId: comment.id,
+        comment: {
+          text: commentText,
+          author: user,
+        },
+      });
     toggleReply();
     refetch();
   };
