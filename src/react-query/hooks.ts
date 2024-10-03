@@ -106,8 +106,10 @@ const useCreateSubComment = () => {
 };
 
 const useUpdateUser = () => {
+  const { refetch } = useGetMe();
   return useMutation({
-    mutationFn: (user: IUser) => APIServices.updateUser(user),
+    mutationFn: (user: Partial<IUser>) => APIServices.updateUser(user),
+    onSuccess: () => refetch(),
   });
 };
 

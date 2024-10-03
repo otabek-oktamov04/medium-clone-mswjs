@@ -76,7 +76,7 @@ class APIServices {
     return res.data;
   }
 
-  async updateUser(user: IUser) {
+  async updateUser(user: Partial<IUser>) {
     const res = await axiosInstance.patch("/users/update", user);
     return res.data;
   }
