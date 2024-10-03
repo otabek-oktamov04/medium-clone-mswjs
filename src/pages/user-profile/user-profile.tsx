@@ -2,6 +2,8 @@ import ArticlesHeader from "@/components/articles/articles-header/articles-heade
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useGetMe } from "@/react-query/hooks";
 import ProfileSections from "../../components/user-profile/profile-sections/profile-sections";
+import { useState } from "react";
+import ProfileModal from "@/components/user-profile/profile-modal/profile-modal";
 
 const footerLinks = [
   { href: "https://medium.statuspage.io/", label: "Status" },
@@ -15,7 +17,14 @@ const footerLinks = [
 ];
 
 const UserProfile = () => {
-  const { data: userInfo } = useGetMe();
+  const { data: userInfo, refetch } = useGetMe();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onProfileModalClose = () => {
+    setIsOpen(false);
+    refetch();
+  };
+
   return (
     <div>
       <div className="fixed w-full bg-white z-50">
@@ -38,7 +47,12 @@ const UserProfile = () => {
             </h2>
             <p className="text-xs mt-2 font-medium">{userInfo?.info}</p>
             <p className="mt-2 text-xs">{userInfo?.bio}</p>
-            <p className="text-xs text-[#1a8917] mt-6">Edit Profile</p>
+            <p
+              className="text-xs text-[#1a8917] mt-6 cursor-pointer"
+              onClick={() => setIsOpen(true)}
+            >
+              Edit Profile
+            </p>
           </div>
           <div className="footer flex gap-4 flex-wrap mt-[55vh]">
             {footerLinks.map((item, index) => (
@@ -49,6 +63,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
+      <ProfileModal isOpen={isOpen} onClose={onProfileModalClose} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useGetMe, useUpdateUser } from "@/react-query/hooks";
 
 export default function AboutSection() {
-  const { data: userInfo, refetch } = useGetMe();
+  const { data: userInfo } = useGetMe();
   const { mutateAsync: updateUser } = useUpdateUser();
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(userInfo?.bio || "");
@@ -17,7 +17,6 @@ export default function AboutSection() {
   const handleSave = async () => {
     try {
       await updateUser({ ...userInfo, bio: text });
-      refetch();
     } catch (error) {
       console.error("Error updating user:", error);
       // Optionally, add user feedback here
