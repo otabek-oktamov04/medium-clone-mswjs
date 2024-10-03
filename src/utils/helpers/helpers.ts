@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const now = new Date();
@@ -30,3 +32,9 @@ function formatOlderDate(date: Date): string {
   };
   return date.toLocaleDateString(undefined, options);
 }
+
+export const useGetSearchQuery = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  return params.get("q") || ""; // Return the search term or an empty string
+};

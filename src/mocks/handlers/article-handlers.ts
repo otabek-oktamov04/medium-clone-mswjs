@@ -8,6 +8,45 @@ const articlesList = articles.articles || [];
 const BASE_URL = "https://medium-api.com";
 
 export const articleHandlers = [
+  http.get(`${BASE_URL}/search`, async ({ request }) => {
+    const url = new URL(request.url);
+    const searchTerm = url.searchParams.get("query")?.toLowerCase();
+
+    if (!searchTerm) {
+      return HttpResponse.json(
+        { message: "Search query is missing" },
+        { status: 400 }
+      );
+    }
+
+    // Search articles by title
+    const matchingArticles = articlesList.filter((article) =>
+      article.title.toLowerCase().includes(searchTerm)
+    );
+
+    // Search users/authors by firstName and lastName
+    const matchingUsers = registeredUsers.filter(
+      (user) =>
+        user.firstName.toLowerCase().includes(searchTerm) ||
+        user.lastName.toLowerCase().includes(searchTerm)
+    );
+
+    if (matchingArticles.length === 0 && matchingUsers.length === 0) {
+      return HttpResponse.json(
+        { message: "No articles or users found matching the query" },
+        { status: 404 }
+      );
+    }
+
+    return HttpResponse.json(
+      {
+        articles: matchingArticles,
+        users: matchingUsers,
+      },
+      { status: 200 }
+    );
+  }),
+
   // GET ARTICLES
   http.get(`${BASE_URL}/articles/saved`, async () => {
     const savedArticles = articlesList.filter((article) => article.isSaved);

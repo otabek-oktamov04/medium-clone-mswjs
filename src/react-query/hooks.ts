@@ -127,6 +127,13 @@ const useGetMyArticles = () => {
   });
 };
 
+const useSearch = (query: string) => {
+  return useQuery({
+    queryKey: [`${query}search`],
+    queryFn: () => APIServices.search(query),
+  });
+};
+
 export {
   useLogin,
   useRegister,
@@ -141,4 +148,5 @@ export {
   useUpdateUser,
   useGetSavedArticles,
   useGetMyArticles,
+  useSearch,
 };
