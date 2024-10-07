@@ -24,7 +24,7 @@ export const registeredUsers: Array<IUser> = [
     email: "nodir@gmail.com",
     bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, soluta!",
     password: "1221",
-    token: "1571ec0d23ba291c3609883465575e4e672c04cdd6867f0dcf949c836cc0e8dc",
+    token: "6bbabdd7fcf02c172fcd88fdaec3328654b12c1fbfbc7406f6c6ec92ac5e7be2",
     image: "",
   },
 ];
