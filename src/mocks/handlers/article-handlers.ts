@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import articles from "../data/articles.json";
-import { IComment } from "@/utils/interfaces/article.interface";
+import { IArticle, IComment } from "@/utils/interfaces/article.interface";
 import { registeredUsers } from "./handlers";
 
 const articlesList = articles.articles || [];
@@ -8,6 +8,82 @@ const articlesList = articles.articles || [];
 const BASE_URL = "https://medium-api.com";
 
 export const articleHandlers = [
+  // CREATE ARTICLE
+  http.post(`${BASE_URL}/articles`, async ({ request }) => {
+    const newArticleData = (await request.json()) as IArticle;
+
+    const newArticle = {
+      id: `${Date.now()}`,
+      title: newArticleData.title,
+      content: newArticleData.content,
+      author: newArticleData.author,
+      thumbnail: newArticleData.thumbnail || "",
+      isSaved: false,
+      recommended: false,
+      followed: false,
+      claps: 0,
+      comments: [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      summary: "",
+      readingCount: 0,
+      tags: [""],
+    };
+
+    articlesList.push(newArticle);
+
+    return HttpResponse.json(
+      { message: "Article created successfully", article: newArticle },
+      { status: 201 }
+    );
+  }),
+
+  // UPDATE ARTICLE
+  http.put(`${BASE_URL}/articles/:id`, async ({ params, request }) => {
+    const article = articlesList.find((article) => article.id === params.id);
+
+    if (!article) {
+      return HttpResponse.json(
+        { message: "Article not found" },
+        { status: 404 }
+      );
+    }
+
+    const updatedData = (await request.json()) as IArticle;
+
+    article.title = updatedData.title || article.title;
+    article.content = updatedData.content || article.content;
+    article.summary = updatedData.summary || article.summary;
+    article.thumbnail = updatedData.thumbnail || article.thumbnail;
+    article.updatedAt = new Date().toISOString();
+
+    return HttpResponse.json(
+      { message: "Article updated successfully", article },
+      { status: 200 }
+    );
+  }),
+
+  // DELETE ARTICLE
+  http.delete(`${BASE_URL}/articles/:id`, async ({ params }) => {
+    const articleIndex = articlesList.findIndex(
+      (article) => article.id === params.id
+    );
+
+    if (articleIndex === -1) {
+      return HttpResponse.json(
+        { message: "Article not found" },
+        { status: 404 }
+      );
+    }
+
+    articlesList.splice(articleIndex, 1);
+
+    return HttpResponse.json(
+      { message: "Article deleted successfully" },
+      { status: 200 }
+    );
+  }),
+
   http.get(`${BASE_URL}/search`, async ({ request }) => {
     const url = new URL(request.url);
     const searchTerm = url.searchParams.get("query")?.toLowerCase();

@@ -8,6 +8,8 @@ import ArticleView from "./pages/articles/article-view/article-view";
 import UserProfile from "./pages/user-profile/user-profile";
 import SearchResult from "./pages/search-result/search-result";
 import ArticleEditor from "./pages/article-editor/article-editor";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -32,6 +34,7 @@ function App() {
         <Route path="search" element={<SearchResult />} />
         <Route path="new" element={<ArticleEditor />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 }
