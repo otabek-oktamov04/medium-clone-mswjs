@@ -145,8 +145,8 @@ const ArticleEditor = () => {
               <Editor
                 apiKey={EDITOR_KEY}
                 init={editorConfig}
-                value={value} // Use the editor's value
-                onEditorChange={onChange} // Update form state on editor change
+                value={value}
+                onEditorChange={onChange}
               />
             )}
           />
