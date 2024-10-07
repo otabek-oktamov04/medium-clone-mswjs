@@ -32,7 +32,8 @@ function App() {
         <Route path="article/:id/" element={<ArticleView />} />
         <Route path="profile" element={<UserProfile />} />
         <Route path="search" element={<SearchResult />} />
-        <Route path="new" element={<ArticleEditor />} />
+        <Route path="new-article" element={<ArticleEditor />} />
+        <Route path="article-edit/:articleId" element={<ArticleEditor />} />
       </Routes>
       <ToastContainer />
     </BrowserRouter>

@@ -1,4 +1,9 @@
-import { useCreateArticle, useGetMe } from "@/react-query/hooks";
+import {
+  useCreateArticle,
+  useGetArticleById,
+  useGetMe,
+  useUpdateArticle,
+} from "@/react-query/hooks";
 import logo from "../../assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import { BellIcon } from "lucide-react";
@@ -10,27 +15,34 @@ import { useEffect, useMemo, useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Editor } from "@tinymce/tinymce-react";
 import { IArticle } from "@/utils/interfaces/article.interface";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EDITOR_KEY = "rnh0axi8gittbak67atz4djjsqyy01qe3iqkqphghk5dsdaj";
 
 const ArticleEditor = () => {
   const { data: userInfo } = useGetMe();
+  const { articleId } = useParams<{ articleId: string }>();
   const {
     register,
     handleSubmit,
     watch,
     control,
+    setValue,
     formState: { errors },
   } = useForm<IArticle>();
   const [isContentEmpty, setIsContentEmpty] = useState(true);
   const [thumbnailPreview, setThumbnailPreview] = useState<string>("");
   const { mutateAsync, isPending } = useCreateArticle();
+  const { data: articleInfo } = useGetArticleById(articleId || "");
+  const { mutateAsync: updateArticle, isPending: isUpdatePending } =
+    useUpdateArticle();
+
   const navigate = useNavigate();
 
   const contentValue = watch("content");
 
+  // Editor configuration
   const editorConfig = useMemo(
     () => ({
       height: 600,
@@ -43,28 +55,43 @@ const ArticleEditor = () => {
     []
   );
 
+  // Form submission handler
   const onSubmit: SubmitHandler<IArticle> = async (data) => {
-    await mutateAsync({
-      ...data,
-      thumbnail: thumbnailPreview,
-    });
-    toast.success("Article Created");
+    const articleData = { ...data, thumbnail: thumbnailPreview };
+    if (articleId) {
+      await updateArticle({ id: articleId, value: articleData });
+      toast.success("Article Updated");
+    } else {
+      await mutateAsync(articleData);
+      toast.success("Article Created");
+    }
     navigate("/");
   };
 
+  // Effect to set initial values from article info
   useEffect(() => {
-    setIsContentEmpty(!contentValue || contentValue.trim() === "");
+    if (articleInfo) {
+      setThumbnailPreview(articleInfo.thumbnail || "");
+      setValue("content", articleInfo.content || "");
+      setValue("title", articleInfo.title);
+      setValue("summary", articleInfo.summary);
+      setValue("thumbnail", articleInfo.thumbnail);
+    }
+  }, [articleInfo, setValue]);
+
+  // Effect to check if content is empty
+  useEffect(() => {
+    setIsContentEmpty(!contentValue?.trim());
   }, [contentValue]);
 
+  // Handle thumbnail change
   const handleThumbnailChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
-        setThumbnailPreview(reader.result as string);
-      };
+      reader.onloadend = () => setThumbnailPreview(reader.result as string);
       reader.readAsDataURL(file);
     } else {
       setThumbnailPreview("");
@@ -83,7 +110,7 @@ const ArticleEditor = () => {
           </div>
           <div className="flex items-center gap-4">
             <Button
-              disabled={isContentEmpty || isPending}
+              disabled={isContentEmpty || isPending || isUpdatePending}
               type="submit"
               className="rounded-full h-7 hover:bg-green-700 text-xs font-light bg-green-500"
             >
@@ -95,41 +122,30 @@ const ArticleEditor = () => {
         </header>
 
         <div className="px-20">
-          <Label className="font-light ">Article Title</Label>
+          <Label className="font-light">Article Title</Label>
           <Input
-            {...register("title", {
-              required: "Title is required",
-            })}
+            {...register("title", { required: "Title is required" })}
             placeholder="Title"
-            className=""
+            defaultValue={articleInfo?.title}
           />
-          <p className="text-red-500 text-xs mb-4">
-            {errors.title && errors.title.message}
-          </p>
+          <p className="text-red-500 text-xs mb-4">{errors.title?.message}</p>
 
           <Label className="font-light">Article Summary</Label>
           <Textarea
-            {...register("summary", {
-              required: "Summary is required",
-            })}
+            {...register("summary", { required: "Summary is required" })}
+            defaultValue={articleInfo?.summary}
             placeholder="Summary"
           />
-          <p className="text-red-500 text-xs mb-4">
-            {errors.summary && errors.summary.message}
-          </p>
+          <p className="text-red-500 text-xs mb-4">{errors.summary?.message}</p>
 
           <Label className="font-light">Thumbnail</Label>
           <Input
             type="file"
             accept="image/*"
-            {...register("thumbnail", {
-              required: "Thumbnail is required",
-            })}
+            {...register("thumbnail")}
             onChange={handleThumbnailChange}
           />
-          <p className="text-red-500 text-xs mb-4">
-            {errors.thumbnail && errors.thumbnail.message}
-          </p>
+
           {thumbnailPreview && (
             <img
               src={thumbnailPreview}
