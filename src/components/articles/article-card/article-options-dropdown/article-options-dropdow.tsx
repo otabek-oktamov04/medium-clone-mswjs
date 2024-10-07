@@ -7,19 +7,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import { MouseEvent } from "react";
+import { Link } from "react-router-dom";
 
 interface IProps {
   onDeleteModalOpen: (e: MouseEvent<HTMLDivElement>) => void;
+  articleId: string;
 }
 
-export default function ArticleOptionsDropdown({ onDeleteModalOpen }: IProps) {
+export default function ArticleOptionsDropdown({
+  onDeleteModalOpen,
+  articleId,
+}: IProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <MoreHorizontal className="h-5 w-5 hover:text-black" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[200px]">
-        <DropdownMenuItem>Edit story</DropdownMenuItem>
+        <Link to={`/article-edit/${articleId}/`}>
+          <DropdownMenuItem>Edit story</DropdownMenuItem>
+        </Link>
         <DropdownMenuItem>Pin this story to your profile</DropdownMenuItem>
         <DropdownMenuItem>Story settings</DropdownMenuItem>
         <DropdownMenuItem>Story stats</DropdownMenuItem>

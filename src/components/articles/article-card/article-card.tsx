@@ -96,7 +96,10 @@ const ArticleCard = ({ article, isAuthor }: IProps) => {
                   )}
 
                   {isAuthor && (
-                    <ArticleOptionsDropdown onDeleteModalOpen={onOpen} />
+                    <ArticleOptionsDropdown
+                      articleId={article.id}
+                      onDeleteModalOpen={onOpen}
+                    />
                   )}
                 </span>
               </div>

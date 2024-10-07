@@ -135,9 +135,11 @@ const useSearch = (query: string) => {
 };
 
 const useCreateArticle = () => {
+  const { refetch } = useGetMyArticles();
   return useMutation({
     mutationFn: (article: Partial<IArticle>) =>
       APIServices.createArticle(article),
+    onSuccess: () => refetch(),
   });
 };
 
@@ -145,6 +147,15 @@ const useArticleDelete = () => {
   const { refetch } = useGetMyArticles();
   return useMutation({
     mutationFn: (id: string) => APIServices.deleteArticle(id),
+    onSuccess: () => refetch(),
+  });
+};
+
+const useUpdateArticle = () => {
+  const { refetch } = useGetMyArticles();
+  return useMutation({
+    mutationFn: (updateData: { id: string; value: Partial<IArticle> }) =>
+      APIServices.updateArticle(updateData.id, updateData.value),
     onSuccess: () => refetch(),
   });
 };
@@ -166,4 +177,5 @@ export {
   useSearch,
   useCreateArticle,
   useArticleDelete,
+  useUpdateArticle,
 };

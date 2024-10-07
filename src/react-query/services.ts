@@ -108,6 +108,11 @@ class APIServices {
     const res = await axiosInstance.delete(`/articles/${id}`);
     return res.data;
   }
+
+  async updateArticle(id: string, value: Partial<IArticle>) {
+    const res = await axiosInstance.put(`/articles/${id}`, value);
+    return res.data as IArticle;
+  }
 }
 
 const ServiceInstance = new APIServices();

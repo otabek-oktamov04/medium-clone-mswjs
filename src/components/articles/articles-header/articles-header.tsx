@@ -41,7 +41,7 @@ const ArticlesHeader = () => {
         </div>
       </div>
       <div className="flex items-center ml-auto gap-6">
-        <Link to="/new">
+        <Link to="/new-article">
           <button className="flex items-center gap-1 text-gray-500 text-xs font-light hover:text-black">
             <PenSquare className="text-xl" />
             Write
