@@ -5,9 +5,11 @@ export const UserArticles = () => {
   const { data } = useGetMyArticles();
   return (
     <div>
-      {data?.map((item) => (
-        <ArticleCard article={item} />
-      ))}
+      {data?.length ? (
+        data.map((item) => <ArticleCard isAuthor article={item} />)
+      ) : (
+        <p>No articles available.</p>
+      )}
     </div>
   );
 };

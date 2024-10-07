@@ -103,6 +103,11 @@ class APIServices {
     const res = await axiosInstance.post("/articles", value);
     return res.data;
   }
+
+  async deleteArticle(id: string) {
+    const res = await axiosInstance.delete(`/articles/${id}`);
+    return res.data;
+  }
 }
 
 const ServiceInstance = new APIServices();

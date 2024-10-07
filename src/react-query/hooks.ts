@@ -141,6 +141,14 @@ const useCreateArticle = () => {
   });
 };
 
+const useArticleDelete = () => {
+  const { refetch } = useGetMyArticles();
+  return useMutation({
+    mutationFn: (id: string) => APIServices.deleteArticle(id),
+    onSuccess: () => refetch(),
+  });
+};
+
 export {
   useLogin,
   useRegister,
@@ -157,4 +165,5 @@ export {
   useGetMyArticles,
   useSearch,
   useCreateArticle,
+  useArticleDelete,
 };
