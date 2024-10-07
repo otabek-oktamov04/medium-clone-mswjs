@@ -134,6 +134,13 @@ const useSearch = (query: string) => {
   });
 };
 
+const useCreateArticle = () => {
+  return useMutation({
+    mutationFn: (article: Partial<IArticle>) =>
+      APIServices.createArticle(article),
+  });
+};
+
 export {
   useLogin,
   useRegister,
@@ -149,4 +156,5 @@ export {
   useGetSavedArticles,
   useGetMyArticles,
   useSearch,
+  useCreateArticle,
 };

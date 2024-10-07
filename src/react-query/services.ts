@@ -90,12 +90,18 @@ class APIServices {
     const res = await axiosInstance.get("articles/my");
     return res.data as IArticle[];
   }
+
   async search(query: string) {
     const res = await axiosInstance.get(`/search?query=${query}`);
     return res.data as {
       articles: IArticle[];
       users: IUser[];
     };
+  }
+
+  async createArticle(value: Partial<IArticle>) {
+    const res = await axiosInstance.post("/articles", value);
+    return res.data;
   }
 }
 
