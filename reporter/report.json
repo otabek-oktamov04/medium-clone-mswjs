@@ -20,6 +20,10 @@
         {
           "outputFile": "reporter/report.json"
         }
+      ],
+      [
+        "html",
+        null
       ]
     ],
     "reportSlowTests": {
@@ -99,12 +103,12 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 3643,
+                  "duration": 3359,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:41:40.002Z",
+                  "startTime": "2024-11-18T06:52:34.671Z",
                   "attachments": []
                 }
               ],
@@ -131,12 +135,12 @@
                 {
                   "workerIndex": 1,
                   "status": "passed",
-                  "duration": 4063,
+                  "duration": 4325,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:41:39.987Z",
+                  "startTime": "2024-11-18T06:52:34.694Z",
                   "attachments": []
                 }
               ],
@@ -163,12 +167,12 @@
                 {
                   "workerIndex": 4,
                   "status": "passed",
-                  "duration": 12798,
+                  "duration": 5276,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:41:47.871Z",
+                  "startTime": "2024-11-18T06:52:41.812Z",
                   "attachments": []
                 }
               ],
@@ -193,14 +197,14 @@
               "projectName": "firefox",
               "results": [
                 {
-                  "workerIndex": 6,
+                  "workerIndex": 5,
                   "status": "passed",
-                  "duration": 7979,
+                  "duration": 18029,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:41:47.862Z",
+                  "startTime": "2024-11-18T06:52:41.838Z",
                   "attachments": []
                 }
               ],
@@ -225,14 +229,14 @@
               "projectName": "webkit",
               "results": [
                 {
-                  "workerIndex": 11,
+                  "workerIndex": 10,
                   "status": "passed",
-                  "duration": 2237,
+                  "duration": 2858,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:42:20.107Z",
+                  "startTime": "2024-11-18T06:53:17.396Z",
                   "attachments": []
                 }
               ],
@@ -259,12 +263,12 @@
                 {
                   "workerIndex": 12,
                   "status": "passed",
-                  "duration": 4216,
+                  "duration": 2452,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-18T06:42:21.750Z",
+                  "startTime": "2024-11-18T06:53:20.877Z",
                   "attachments": []
                 }
               ],
@@ -306,7 +310,7 @@
                     {
                       "workerIndex": 2,
                       "status": "failed",
-                      "duration": 2999,
+                      "duration": 3163,
                       "error": {
                         "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
                         "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
@@ -330,7 +334,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:40.032Z",
+                      "startTime": "2024-11-18T06:52:34.699Z",
                       "attachments": [],
                       "errorLocation": {
                         "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
@@ -362,12 +366,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 3179,
+                      "duration": 3385,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:40.009Z",
+                      "startTime": "2024-11-18T06:52:34.741Z",
                       "attachments": []
                     }
                   ],
@@ -392,14 +396,14 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
+                      "workerIndex": 0,
                       "status": "passed",
-                      "duration": 1777,
+                      "duration": 1567,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:43.982Z",
+                      "startTime": "2024-11-18T06:52:38.639Z",
                       "attachments": []
                     }
                   ],
@@ -424,9 +428,9 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 5,
+                      "workerIndex": 6,
                       "status": "failed",
-                      "duration": 14000,
+                      "duration": 19102,
                       "error": {
                         "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
                         "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
@@ -450,7 +454,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:47.881Z",
+                      "startTime": "2024-11-18T06:52:42.452Z",
                       "attachments": [],
                       "errorLocation": {
                         "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
@@ -482,12 +486,12 @@
                     {
                       "workerIndex": 7,
                       "status": "passed",
-                      "duration": 11318,
+                      "duration": 17440,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:48.354Z",
+                      "startTime": "2024-11-18T06:52:43.188Z",
                       "attachments": []
                     }
                   ],
@@ -512,14 +516,14 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 4,
                       "status": "passed",
-                      "duration": 10529,
+                      "duration": 13513,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:41:57.326Z",
+                      "startTime": "2024-11-18T06:52:49.298Z",
                       "attachments": []
                     }
                   ],
@@ -544,9 +548,9 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 9,
+                      "workerIndex": 8,
                       "status": "failed",
-                      "duration": 2209,
+                      "duration": 2101,
                       "error": {
                         "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
                         "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
@@ -570,7 +574,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:42:13.390Z",
+                      "startTime": "2024-11-18T06:53:13.836Z",
                       "attachments": [],
                       "errorLocation": {
                         "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
@@ -600,14 +604,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 8,
+                      "workerIndex": 9,
                       "status": "passed",
-                      "duration": 2527,
+                      "duration": 2568,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:42:13.383Z",
+                      "startTime": "2024-11-18T06:53:13.839Z",
                       "attachments": []
                     }
                   ],
@@ -632,14 +636,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 11,
                       "status": "passed",
-                      "duration": 1583,
+                      "duration": 2181,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-11-18T06:42:16.951Z",
+                      "startTime": "2024-11-18T06:53:18.255Z",
                       "attachments": []
                     }
                   ],
@@ -658,8 +662,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-11-18T06:41:38.536Z",
-    "duration": 47671.957,
+    "startTime": "2024-11-18T06:52:33.469Z",
+    "duration": 50071.799,
     "expected": 12,
     "skipped": 0,
     "unexpected": 3,

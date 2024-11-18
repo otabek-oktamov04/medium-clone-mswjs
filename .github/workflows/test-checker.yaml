@@ -64,7 +64,7 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: forked-repo
-        run: npx playwright test ${{ github.event.inputs.tests_path }} --reporter=json --output reports
+        run: npx playwright test ${{ github.event.inputs.tests_path }}
         continue-on-error: true
 
       - name: Upload Playwright report as an artifact
