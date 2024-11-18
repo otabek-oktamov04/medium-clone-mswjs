@@ -1,0 +1,668 @@
+{
+  "config": {
+    "configFile": "D:\\Projects\\medium-clone-mswjs\\playwright.config.ts",
+    "rootDir": "D:/Projects/medium-clone-mswjs/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "reporter/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "D:/Projects/medium-clone-mswjs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Projects/medium-clone-mswjs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Projects/medium-clone-mswjs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "D:/Projects/medium-clone-mswjs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Projects/medium-clone-mswjs/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "D:/Projects/medium-clone-mswjs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.48.2",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "example.spec.ts",
+      "file": "example.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 3643,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:41:40.002Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-b06063a3e613764d08f8",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 4063,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:41:39.987Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f",
+          "file": "example.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 12798,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:41:47.871Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-f53a5ad453cd33dc57d5",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 7979,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:41:47.862Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-bfe080d6fe34297f494c",
+          "file": "example.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 2237,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:42:20.107Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-4a26ebd06a6b810edcc2",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "status": "passed",
+                  "duration": 4216,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-11-18T06:42:21.750Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-1eb159041d56409ed83c",
+          "file": "example.spec.ts",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "home\\home.spec.tsx",
+      "file": "home/home.spec.tsx",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Home Page",
+          "file": "home/home.spec.tsx",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display all navigation buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "failed",
+                      "duration": 2999,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
+                        "location": {
+                          "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                          "column": 43,
+                          "line": 11
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                            "column": 43,
+                            "line": 11
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n\n\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:40.032Z",
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                        "column": 43,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-4570b66790d0c1137954",
+              "file": "home/home.spec.tsx",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should display footer with all links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "status": "passed",
+                      "duration": 3179,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:40.009Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-2a79051401a7abd7d043",
+              "file": "home/home.spec.tsx",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "responsive design - mobile view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "status": "passed",
+                      "duration": 1777,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:43.982Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-616df7724d35a78dbbdd",
+              "file": "home/home.spec.tsx",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should display all navigation buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "status": "failed",
+                      "duration": 14000,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
+                        "location": {
+                          "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                          "column": 43,
+                          "line": 11
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                            "column": 43,
+                            "line": 11
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n\n\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:47.881Z",
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                        "column": 43,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-f64443ba683e8b7c5538",
+              "file": "home/home.spec.tsx",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should display footer with all links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "status": "passed",
+                      "duration": 11318,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:48.354Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-5b5c861780779c539cd0",
+              "file": "home/home.spec.tsx",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "responsive design - mobile view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "status": "passed",
+                      "duration": 10529,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:41:57.326Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-1efaf8242af3b6cfa09f",
+              "file": "home/home.spec.tsx",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should display all navigation buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "status": "failed",
+                      "duration": 2209,
+                      "error": {
+                        "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n",
+                        "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43",
+                        "location": {
+                          "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                          "column": 43,
+                          "line": 11
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                            "column": 43,
+                            "line": 11
+                          },
+                          "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('Write') resolved to 2 elements:\n    1) <li class=\"hidden md:block cursor-pointer\">Write</li> aka getByText('Write', { exact: true })\n    2) <p class=\"mt-6 text-[#242424] text-base sm:text-xl md:text-2xl\">A place to read, write, and deepen your understan…</p> aka getByText('A place to read, write, and')\n\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Write')\u001b[22m\n\n\n\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m\"should display all navigation buttons\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check \"Write\" button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Write\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check \"Sign in\" button\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Sign in\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx:11:43\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:42:13.390Z",
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "D:\\Projects\\medium-clone-mswjs\\tests\\home\\home.spec.tsx",
+                        "column": 43,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-d23f09d482338191cb27",
+              "file": "home/home.spec.tsx",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "should display footer with all links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "status": "passed",
+                      "duration": 2527,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:42:13.383Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-fd0c8bb60fad36fe8f66",
+              "file": "home/home.spec.tsx",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "responsive design - mobile view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "status": "passed",
+                      "duration": 1583,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-11-18T06:42:16.951Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a633f04da95bcbf35256-10ac1afb4b5942f7dfed",
+              "file": "home/home.spec.tsx",
+              "line": 45,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-11-18T06:41:38.536Z",
+    "duration": 47671.957,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
