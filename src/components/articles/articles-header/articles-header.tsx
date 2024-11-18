@@ -19,9 +19,10 @@ const ArticlesHeader = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchValue) {
-      navigate(`/search?q=${searchValue}`);
+      navigate(`/search?searchQuery=${searchValue}`);
     }
   };
+
 
   return (
     <div className="w-full h-14 border-b px-6 flex items-center">

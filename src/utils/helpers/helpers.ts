@@ -36,5 +36,5 @@ function formatOlderDate(date: Date): string {
 export const useGetSearchQuery = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  return params.get("q") || ""; // Return the search term or an empty string
+  return params.get("searchQuery") || ""; // Return the search term or an empty string
 };

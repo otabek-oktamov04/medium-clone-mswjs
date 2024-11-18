@@ -1,0 +1,89 @@
+name: Medium Clone Project CI/CD - Front-End Playwright
+on:
+  workflow_dispatch:
+    inputs:
+      tests_path:
+        description: "Tests path"
+        required: false
+        default: ""
+      github_feedback_id:
+        description: "Github feedback id"
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy and run Playwright tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Clean environment
+        run: |
+          rm -rf original-repo
+          rm -rf forked-repo
+
+      - name: Send a signal to the webhook that the job has started.
+        run: |
+          curl -X PUT --location 'https://api-dev.mohirpool.uz/api/site/accelerators/code-reviews/github-feedbacks/${{ github.event.inputs.github_feedback_id }}/' \
+          --header 'X-API-KEY: ${{ secrets.X_API_KEY }}' \
+          --form 'github_username=${{ github.actor }}' \
+          --form 'action_run_id=${{ github.run_id }}' \
+          --form 'status=started'
+
+      - name: Checkout original repository
+        uses: actions/checkout@v3
+        with:
+          repository: otabek-oktamov04/medium-clone-mswjs
+          path: original-repo
+          ref: main
+          fetch-depth: 0
+
+      - name: Checkout forked repository
+        uses: actions/checkout@v3
+        with:
+          path: forked-repo
+          ref: main
+          fetch-depth: 0
+
+      - name: Move tests folder from original to forked
+        run: |
+          rm -rf forked-repo/tests
+          mv original-repo/tests forked-repo/
+          rm -rf original-repo
+
+      - name: Install dependencies
+        working-directory: forked-repo
+        run: npm install
+
+      - name: Start the front-end application
+        working-directory: forked-repo
+        run: |
+          npm run build
+          npm run start &
+          sleep 10
+
+      - name: Run Playwright tests
+        working-directory: forked-repo
+        run: npx playwright test ${{ github.event.inputs.tests_path }} --reporter=json --output reports
+        continue-on-error: true
+
+      - name: Upload Playwright report as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: forked-repo/reports
+
+      - name: Send a signal to the webhook that the job has finished.
+        if: always()
+        run: |
+          status=${{ job.status }}
+          if [ "$status" == "success" ]; then
+            status="completed"
+          else
+            status="failed"
+          fi
+          curl -X PUT --location 'https://api-dev.mohirpool.uz/api/site/accelerators/code-reviews/github-feedbacks/${{ github.event.inputs.github_feedback_id }}/' \
+          --header 'X-API-KEY: ${{ secrets.X_API_KEY }}' \
+          --form 'github_username=${{ github.actor }}' \
+          --form 'action_run_id=${{ github.run_id }}' \
+          --form "status=$status"
