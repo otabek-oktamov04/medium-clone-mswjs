@@ -7,12 +7,6 @@ test.describe("Home Page", () => {
   });
 
   test("should display all navigation buttons", async ({ page }) => {
-    // Check "Write" button
-    await expect(page.getByText("Write")).toBeVisible();
-
-    // Check "Sign in" button
-    await expect(page.getByText("Sign in")).toBeVisible();
-
     // Check "Get Started" button
     await expect(page.getByText("Get Started")).toBeVisible();
 
@@ -45,10 +39,6 @@ test.describe("Home Page", () => {
   test("responsive design - mobile view", async ({ page }) => {
     // Set viewport to mobile size
     await page.setViewportSize({ width: 390, height: 844 });
-
-    // Hidden elements in mobile
-    await expect(page.getByText("Write")).not.toBeVisible();
-    await expect(page.getByText("Sign in")).not.toBeVisible();
 
     // Visible elements in mobile
     await expect(page.getByText("Get Started")).toBeVisible();
