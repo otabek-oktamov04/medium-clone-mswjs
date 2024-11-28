@@ -23,11 +23,12 @@ const ArticlesHeader = () => {
     }
   };
 
-
   return (
     <div className="w-full h-14 border-b px-6 flex items-center">
       <div className="flex gap-6 items-center">
-        <img src={logo} width={112} />
+        <Link to="/">
+          <img src={logo} width={112} />
+        </Link>
         <div className="flex items-center bg-gray-50 rounded-full px-4 py-2 w-64">
           <SearchIcon className="text-2xl" />
           <input
