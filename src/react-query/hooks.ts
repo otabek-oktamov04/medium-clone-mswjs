@@ -55,7 +55,7 @@ const useGetArticles = (
   search: string
 ) => {
   return useQuery({
-    queryKey: [`articles${isRecommended}${isFollowed}${search}`],
+    queryKey: ["articles",isRecommended,isFollowed,search],
     queryFn: () => APIServices.getArticles(isRecommended, isFollowed, search),
   });
 };
